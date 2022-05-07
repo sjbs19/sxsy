@@ -1,2 +1,44 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="head">
+<view class="loc" bindtap="selectorCity">📡{{citys}}</view>
+<view class="search">
+    <input type="text" confirm-type="search" class="serach-input" placeholder-style="text-align:center"
+      placeholder="🔍" bindconfirm="searching" />
+  </view>
+</view>
+<view class="swiper-tab">
+</view>
+
+<view class="typebox">
+  <view class="type {{choose == 0 ? 'on' : ''}}" bindtap="choose">
+    <image src="/images/classify/composite.png" class="typeimg" data-id="0"></image>
+    <text>综合</text>
+  </view>
+
+  <view class="type {{choose == 1 ? 'on' : ''}}" bindtap="choose">
+    <image src="/images/classify/Life.png" class="typeimg" data-id="1"></image>
+    <text>生活用品</text>
+  </view>
+  <view class="type {{choose == 2 ? 'on' : ''}}" bindtap="choose">
+    <image src="/images/classify/food.png" class="typeimg" data-id="2"></image>
+    <text>饮品食品</text>
+  </view>
+  <view class="type {{choose == 3 ? 'on' : ''}}" bindtap="choose">
+    <image src="/images/classify/cash.png" class="typeimg" data-id="3"></image>
+    <text>现金</text>
+  </view>
+  <view class="type {{choose == 4 ? 'on' : ''}}" bindtap="choose">
+    <image src="/images/classify/other.png" class="typeimg" data-id="4"></image>
+    <text>其他</text>
+  </view>
+</view>
+
+
+<!-- 城市选择器 -->
+<selector-component
+  show="{{ selectorVisible }}"
+  key="RHMBZ-FDDWD-F4V4W-HKLNJ-OC6DS-GWBTR"
+  referer="城市定位"
+  hotCitys = '北京,上海,南宁,桂林,广州,深圳,成都,杭州'
+  bindselect="onSelectCity"
+></selector-component>

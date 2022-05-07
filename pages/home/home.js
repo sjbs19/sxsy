@@ -1,12 +1,27 @@
 // pages/home/home.js
+// 获取应用实例
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    selectorVisible: false,
+    citys:"南宁市"
   },
+  selectorCity: function (e) {
+    this.setData({
+      selectorVisible: true,
+    });
+  },
+  // 当用户选择了组件中的城市之后的回调函数
+  onSelectCity(e) {
+    this.setData({
+      citys: e.detail.city.fullname
+    });
+  },
+  
 
   /**
    * 生命周期函数--监听页面加载
